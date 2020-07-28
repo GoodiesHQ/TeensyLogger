@@ -10,10 +10,12 @@ While I developed and deploying using [VisualTeensy](https://github.com/luni64/V
   1. Upon bootup, **TL** will locate the file *BOOT.TXT* containing a hexadecimal value known as the **Boot ID**. If the file does not exist, 0 will be used and written to the file, creating it. This ID is incremented by one each time **TL** boots up and *BOOT.TXT* is overwritten with the new value.
   2. An XOR key can be statically defined  
   3. When the logging starts, it will be started at part 0. To keep the log files relatively small, the log will be rotated every 1,000,000,000
-  4. Each logfile will be named ***TL_{{BOOT ID}}_{{part #}}.TLOG***. E.G. the 10th computer's log files will look like:
-     - TL_A_0.TLOG
-     - TL_A_1.TLOG
-     - TL_A_2.TLOG
+  4. Each logfile will be named ***{{BOOT ID}}_{{part #}}.TL***. E.G. the 10th computer's log files will look like:
+     - A_0.TL
+     - A_1.TL
+     - A_2.TL
+     - B_0.TL // New Host, increment Boot ID to 11 (0xB)
+     - B_1.TL
      - etc
   5. The logfile can be retrieved and XORed with the static key that is built-into the program (default is **"\x00"** which provides NO ENCRYPTION).
   
